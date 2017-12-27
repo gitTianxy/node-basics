@@ -7,6 +7,7 @@
  * 异步调用就不能用return来返回值了, 而只能用callback
  */
 var fs = require('fs')
+const readline = require('readline')
 
  // read sync
 function readSync(file) {
@@ -36,4 +37,15 @@ try {
     })
 } catch (error) {
     console.error('read async fail.', error)
+}
+
+// read by line
+readByLine('data/output.txt')
+function readByLine(file) {
+    var rd = readline.createInterface({
+        input: fs.createReadStream(file)
+    })
+    rd.on('line', function (line) {
+        console.log('read line:', line)
+    })
 }

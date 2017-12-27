@@ -1,7 +1,6 @@
 /**
- * crud
+ * server providing RESTful API
  */
-const util = require('util')
 var express = require('express');
 var app = express();
 var RESTController = require('./RESTController');

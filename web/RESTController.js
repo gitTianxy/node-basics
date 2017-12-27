@@ -1,3 +1,6 @@
+/**
+ * CRUD
+ */
 const util = require('util')
 var express = require('express');
 var router = express.Router();
@@ -13,6 +16,11 @@ router.post('/', function (req, res) {
 // retrieve: GET
 router.get('/:id', function (req, res) {
     console.log('GET request. params:', req.params)
+    res.status(200).send('succ')
+})
+
+router.get('/:name/:sex/age', function (req, res) {
+    console.log('GET age by name & sex. params:', req.params)
     res.status(200).send('succ')
 })
 
