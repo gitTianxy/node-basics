@@ -19,8 +19,8 @@ var l2 = function listener2() {
 emitter.on(eventA, l2);
 
 // 2. check count of listeners
-var count = events.EventEmitter.listenerCount(emitter,eventA)
-console.log('listener count of ' + eventA + ':' + count)
+var c = events.EventEmitter.listenerCount(emitter,eventA)
+console.log('listener count of ' + eventA + ':' + c)
 
 // 3. emit event
 console.log('emit ' + eventA + '...');
@@ -30,6 +30,7 @@ emitter.emit(eventA);
 emitter.removeListener(eventA, l1);
 
 // check listener count
-console.log('listener count of ' + eventA + ': ' + events.EventEmitter.listenerCount(emitter, eventA));
+c = events.EventEmitter.listenerCount(emitter,eventA)
+console.log('listener count of ' + eventA + ': ' + c);
 console.log('re-emit ' + eventA + '...');
 emitter.emit(eventA);
