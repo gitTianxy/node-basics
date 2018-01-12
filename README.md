@@ -123,3 +123,18 @@ class PrimaryStudent extends Student {
     - class的作用就是让JavaScript引擎去实现原来需要我们自己编写的原型链代码。简而言之，用class的好处就是极大地简化了原型链代码。
     - 不是所有的主流浏览器都支持ES6的class。如果一定要现在就用上，就需要一个工具把class代码转换为传统的prototype代码，可以试试Babel这个工具。
 
+## 进程
+### 子进程child_process
+ * Node 提供了 child_process 模块来创建子进程.
+ * child_process方法：
+    1. exec - 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回。
+    2. spawn - 使用指定的命令行参数创建新进程。
+    3. fork - spawn()的特殊形式, 如 fork('./son.js') 相当于 spawn('node', ['./son.js']) ; 与spawn方法不同的是，fork会在父进程与子进程之间，建立一个通信管道，用于进程之间的通信。
+ * child_process总是包含三个流对象:
+    1. child.stdin
+    2. child.stdout
+    3. child.stderr
+
+## sandboxed environment
+* The sandboxed code uses a different V8 Context, meaning that it has a different global object than the rest of the code.
+* One can provide the context by "contextifying" a sandbox object. The sandboxed code treats any property on the sandbox like a global variable. Any changes on global variables caused by the sandboxed code are reflected in the sandbox object.
